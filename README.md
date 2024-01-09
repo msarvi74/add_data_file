@@ -9,6 +9,15 @@ Chmod 777 ‘/directory path/df.sh’
 دسترسی اجرا شدن این فایل را میدهیم.
 سپس با دستور زیر یک external table می سازیم :
 
+CREATE TABLE df
+  (
+     available_bytes VARCHAR2(100)
+  )
+organization external ( TYPE oracle_loader DEFAULT directory directory ACCESS
+                      parameters ( records
+                      delimited BY newline nobadfile nologfile preprocessor
+                      directory :'df.sh' ) location('df.dat') ); 
+
  
 
 
